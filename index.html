@@ -8,7 +8,10 @@
     <title>Vue Hello</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/app.css">
 </head>
+
+<!-- IL CSS NON E' STATO FATTO DA MA CI STO GIOCANDO -->
 
 <body>
     <style>
@@ -21,11 +24,17 @@
             font-family: 'Cyber', sans-serif;
         }
     </style>
-
+  
     <div id="app">
-        <h1 :class="[className]">{{message}}</h1>
-        <img src="" alt="">
+        <button class="cybr-btn my-5">
+            {{message}}<span aria-hidden>_</span>
+            <span aria-hidden class="cybr-btn__glitch">{{message}}</span>
+            <span aria-hidden class="cybr-btn__tag">R25</span>
+        </button>
+        
+        <img :src="img" alt="">
     </div>
+
     <script>
         const { createApp } = Vue
 
@@ -34,10 +43,8 @@
                 return {
                     message: 'Cyberpunk',
                     img: './img/cy.png',
-                    className: 'text-center'
                 }
-            }
-        }
+            }}
         const app = createApp(option)
         app.mount('#app')
     </script>
